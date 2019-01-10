@@ -140,3 +140,66 @@ var example1 = new Vue({
     counter: 0
   }
 })
+
+
+var vm = new Vue({
+  el: '#example-0',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // 算出 getter 関数
+    reversedMessage: function () {
+      // `this` は vm インスタンスを指します
+      return this.message.split('').reverse().join('')
+    },
+    now: function () {
+      return Date.now()
+    }
+
+  }
+})
+
+var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'I cannot give you an answer until you ask a question!',
+    src: 'https://grapee.jp/wp-content/uploads/32187_main2.jpg'
+  },
+  watch: {
+    // この関数は question が変わるごとに実行されます。
+    question: function (newQuestion, oldQuestion) {
+      this.answer = 'Waiting for you to stop typing...'
+      this.debouncedGetAnswer()
+    }
+  },
+  created: function () {
+    // _.debounce は特にコストの高い処理の実行を制御するための
+    // lodash の関数です。この場合は、どのくらい頻繁に yesno.wtf/api
+    // へのアクセスすべきかを制限するために、ユーザーの入力が完全に
+    // 終わるのを待ってから ajax リクエストを実行しています。
+    // _.debounce (とその親戚である _.throttle )  についての詳細は
+    // https://lodash.com/docs#debounce を見てください。
+    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+  },
+  methods: {
+    getAnswer: function () {
+      if (this.question.indexOf('?') === -1) {
+        this.answer = 'Questions usually contain a question mark. ;-)'
+        return
+      }
+      this.answer = 'Thinking...'
+      var vm = this
+      console.log(axios.get('https://yesno.wtf/api'))
+      axios.get('https://yesno.wtf/api')
+        .then(function (response) {//promise成功時に実行
+          vm.answer = _.capitalize(response.data.answer)
+          vm.src = response.data.image
+        })
+        .catch(function (error) {//promise失敗時に実行
+          vm.answer = 'Error! Could not reach the API. ' + error
+        })
+    }
+  }
+})
