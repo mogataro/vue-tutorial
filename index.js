@@ -137,7 +137,8 @@ var example2 = new Vue({
 var example1 = new Vue({
   el: '#example-1',
   data: {
-    counter: 0
+    counter: 0,
+    isActive: false
   }
 })
 

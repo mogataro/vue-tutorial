@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="index.css">
+        <script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    </head>
+    <body>
+
+            <div id="app">
+                {{ a }}
+            </div>
+
+            <div id="app2" v-bind:class="classObject">クラス名をコンソールで確認</div>
+
+
+
+            <script src="index2.js"></script>
+    </body>
+</html>

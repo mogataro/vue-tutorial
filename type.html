@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>type example</title>
+
+    <script>
+        var currEvent = null;
+        function getEvtType(evt) {
+            currEvent = evt.type;
+            document.getElementById("Etype").firstChild.nodeValue = currEvent;
+        }
+    </script>
+
+</head>
+<body
+  onkeydown="getEvtType(event)"
+  onkeyup="getEvtType(event)"
+  onmousedown="getEvtType(event)"
+  onmouseup="getEvtType(event)">
+    <p>
+    イベントのタイプを取得するために、任意のキーを押すか、
+    またはマウスクリックをしてみてください。
+    </p>
+    <p>Event type: <span id="Etype">-</span></p>
+</body>
+</html>

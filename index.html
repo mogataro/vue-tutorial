@@ -83,6 +83,11 @@
         <div id="example-1">
             <button v-on:click="counter += 1">Add 1</button>
             <p>The button above has been clicked {{ counter }} times.</p>
+
+            <div v-bind:class="{ active: isActive }">
+                <h3>active: isActive</h3>
+            </div>
+
         </div>
 
         <div id="example-0">
