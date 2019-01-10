@@ -97,7 +97,7 @@ vm.a == data.a // => true
 // vm.a // => 3
 
 /**                    **/
-var data = { a: 1 }
+var data = { c: 13, d:"aiueo"}
 var vm = new Vue({
   el: '#example',
   data: data
@@ -106,7 +106,17 @@ var vm = new Vue({
 vm.$data === data // => true
 vm.$el === document.getElementById('example') // => true
 
+console.log(vm.$data);
+console.log(vm.$el);
+console.log(document.getElementById('example'));
+
+
 // $watch はインスタンスメソッドです
-vm.$watch('a', function (newValue, oldValue) {
-   // このコールバックは `vm.a` の値が変わる時に呼ばれます
+vm.$watch('c', function (newValue, oldValue) {
+  console.log("henkousitatokiniyobareru");
+   // このコールバックは `vm.c` の値が変わる時に呼ばれます
 })
+
+vm.c = "henkousitayo";//ここでwatchが呼ばれてる。
+
+
