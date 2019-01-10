@@ -122,10 +122,21 @@ vm.c = "vm.cを編集したよ";//ここでwatchが呼ばれてる。
 var example2 = new Vue({
   el: '#example-2',
   data: {
-      a:"<strong><b>created フックはインスタンスが生成された後にコードを実行したいときに使われます。</b></strong>"
+      a:"<strong><b>created フックはインスタンスが生成された後にコードを実行したいときに使われます。</b></strong>",
+      b: 1,
+      c: false,
+      seen: true,
+      url:"https://www.google.com"
   },
   created: function () {
     // `this` は vm インスタンスを指します
     console.log(this.a)
+  }
+})
+
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
   }
 })

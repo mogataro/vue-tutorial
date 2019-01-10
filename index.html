@@ -71,9 +71,15 @@
         <div id="example-2">
             <p>{{ a }}</p>
             <p v-html="a"></p>
-            <p v-bind:id="example-2"></p>
+            <p v-bind:id="a">{{b + 100}}</p>
+            <p>{{ c ? "true":"false" }}</p>
+            <p v-if="seen">Now you see me</p>
+            <p><a v-bind:href="url"> リンク </a></p>
+        </div>
 
-
+        <div id="example-1">
+            <button v-on:click="counter += 1">Add 1</button>
+            <p>The button above has been clicked {{ counter }} times.</p>
         </div>
 
         <script src="index.js"></script>
