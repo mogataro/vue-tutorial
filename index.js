@@ -113,10 +113,19 @@ console.log(document.getElementById('example'));
 
 // $watch はインスタンスメソッドです
 vm.$watch('c', function (newValue, oldValue) {
-  console.log("henkousitatokiniyobareru");
+  console.log("このコールバックは `vm.c` の値が変わったため呼ばれました");
    // このコールバックは `vm.c` の値が変わる時に呼ばれます
 })
 
-vm.c = "henkousitayo";//ここでwatchが呼ばれてる。
+vm.c = "vm.cを編集したよ";//ここでwatchが呼ばれてる。
 
-
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+      a:"<strong><b>created フックはインスタンスが生成された後にコードを実行したいときに使われます。</b></strong>"
+  },
+  created: function () {
+    // `this` は vm インスタンスを指します
+    console.log(this.a)
+  }
+})
