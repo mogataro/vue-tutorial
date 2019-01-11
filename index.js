@@ -1,3 +1,16 @@
+new Vue({ 
+  el: '#app4',
+  data: {
+      styleObject: {
+          color: 'red',
+          // fontSize: '13px'
+      }
+  }
+})
+
+
+
+
 var app = new Vue({ 
     el: '#app',
     data: {
