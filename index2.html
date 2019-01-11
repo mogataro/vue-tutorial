@@ -24,6 +24,39 @@
 
         <div id="app4" v-bind:style="styleObject">app4</div>
 
+        <h3>配列構文</h3>
+        <div id="app5" v-bind:class="[activeClass, errorClass]">コンソールでクラスを確認</div>
+
+
+
+
+        <h3>コンポーネントの基本</h3>
+
+        <div id="components-demo">
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+
+        <div id="app6">
+            <h1 v-if="ok">Yes</h1>
+            <h1 v-else>No</h1>
+        </div>
+
+        <div id="no-key-example" class="demo">
+            <div>
+                <template v-if="loginType === 'username'">
+                    <label>Username</label>
+                    <input placeholder="Enter your username">
+                </template>
+                <template v-else>
+                    <label>Email</label>
+                    <input placeholder="Enter your email address">
+                </template>
+            </div>
+
+            <button onclick="changeType()">Toggle login type</button>
+        </div>
+
 
 
 

@@ -40,5 +40,75 @@ var app2 = new Vue({
       }
 })
 
+var app5 = new Vue({ 
+    el: '#app5',
+    data: {
+        activeClass: 'active',
+        errorClass: 'text-danger'
+      }
+})
 
 
+//コンポーネントの基本
+// button-counter と呼ばれる新しいコンポーネントを定義します
+
+
+Vue.component('button-counter', {
+    data: function () {
+      return {
+        count: 0
+      }
+    },
+    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
+
+new Vue({
+    el: '#components-demo',
+})
+
+
+/**
+ * この書き方だとダメ
+ */
+// new Vue({
+//     el: '#components-demo',
+//     components: {
+//         template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+//     },
+//     data: function () {
+//         return {
+//           count: 0
+//         }
+//     },
+// })
+
+var app6 = new Vue({ 
+    el: '#app6',
+    data: {
+        ok: "exist",
+      }
+})
+
+
+
+var app7 = new Vue({
+    el: '#no-key-example',
+    data: {
+      loginType: 'username'
+    },
+    methods: {
+      toggleLoginType: function () {
+        return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+      }
+    }
+});
+
+function changeType(){
+    // console.log(document.getElementById( "no-key-example" ))
+    if(app7.loginType === 'username'){
+        app7.loginType = 'email';
+    }else{
+        app7.loginType = 'username';
+    }
+}
+console.log(app7.loginType);
