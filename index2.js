@@ -98,8 +98,17 @@ var app7 = new Vue({
     },
     methods: {
       toggleLoginType: function () {
+
         return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+      },
+      typeChange: function () {
+        if(this.loginType === 'username'){
+          this.loginType = 'email';
+        }else{
+          this.loginType = 'username';
+        }
       }
+
     }
 });
 
@@ -111,4 +120,6 @@ function changeType(){
         app7.loginType = 'username';
     }
 }
+
+
 console.log(app7.loginType);
